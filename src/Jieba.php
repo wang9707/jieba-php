@@ -139,6 +139,11 @@ class Jieba
         }
 
         if (stripos(PHP_OS, 'darwin') === 0) {
+
+            if (exec("uname -a") === 'arm64'){
+                return __DIR__ . '/../lib/libjieba_php2.dylib';
+            }
+
             return __DIR__ . '/../lib/libjieba_php.dylib';
         }
 
